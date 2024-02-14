@@ -1,0 +1,14 @@
+@use "abstracts" as *;
+@use "globals" as *;
+@use "layout" as *;
+@use "pages" as *;
+
+.hidden {
+  display: none;
+}
+
+// Features for in the future
+
+#future {
+  display: none;
+}

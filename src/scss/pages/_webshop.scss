@@ -1,0 +1,35 @@
+@use "../abstracts/margins" as *;
+@use "../abstracts/shadows" as *;
+@use "../abstracts/colors" as *;
+
+.webshop .section-title-wrapper {
+  transform: rotate(0.7deg) translateX(10px);
+}
+.socials-wrapper-webshop {
+  display: grid;
+  // grid-template-areas: "find find" "sociali socialy";
+  margin-block: $margin-medium;
+  // gap: $margin-small;
+  transform: translateX(-10%);
+
+  & .find {
+    grid-area: find;
+    transform: translatex(5%);
+    rotate: (-1deg);
+  }
+  //   & .socials-link-insta {
+  //   }
+  //   // & .socials-link-youtube {
+
+  //   // }
+}
+
+.webshop .paperwrapper-white {
+  margin-block: $margin-small;
+  display: grid;
+  place-content: center;
+
+  &:hover {
+    rotate: 0deg;
+  }
+}

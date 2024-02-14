@@ -1,0 +1,14 @@
+@use "../abstracts/margins" as *;
+
+.email-link {
+  text-decoration: underline;
+  margin-top: $margin-small;
+}
+
+.email-link:hover {
+  text-decoration: none;
+}
+
+.external-link {
+  text-decoration: underline dotted;
+}

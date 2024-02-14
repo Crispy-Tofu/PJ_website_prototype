@@ -1,0 +1,39 @@
+@use "../abstracts/margins" as *;
+@use "../abstracts/colors" as *;
+
+.section-title-wrapper {
+  display: block;
+  background-color: #eee;
+  margin: 2rem auto;
+  width: fit-content;
+}
+
+.section-title {
+  padding: 1rem 2rem;
+  border: 2px black solid;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.section-name {
+  margin-bottom: $margin-small;
+}
+.section-text-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: $margin-medium;
+  flex-wrap: nowrap;
+  margin-inline: clamp($margin-medium, 7vw, $margin-large);
+}
+
+.section-text {
+  display: inline-block;
+  margin: $margin-small;
+  width: 100%;
+  flex: 2;
+  border: 2px black solid;
+}
+
+.read-more-link {
+  font-size: clamp(0.75rem, 0.6rem + 1vw, 1.1rem);
+}

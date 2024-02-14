@@ -1,0 +1,16 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/shadows" as *;
+
+// .how-it-works {
+//     background-color: $paper-blue;
+//     filter: drop-shadow($shadow-small $paper-blue-shadow);
+//     & > .section-title-wrapper {
+//         filter: drop-shadow($shadow-small $paper-blue-shadow);
+//     }
+// }
+
+@media screen and (max-width: 50rem) {
+  .section-text-wrapper {
+    flex-direction: column;
+  }
+}

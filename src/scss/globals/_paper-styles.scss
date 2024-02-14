@@ -1,0 +1,168 @@
+@use "../abstracts/colors" as *;
+@use "../abstracts/paths" as *;
+@use "../abstracts/shadows" as *;
+@use "../abstracts/margins" as *;
+@use "../abstracts/transitions" as *;
+@use "sass:string";
+.paper {
+  padding: 0.75rem 1.5rem;
+  // border: 0.5px dotted black;
+  display: inline-block;
+
+  // &__cut::after {
+  //   content: "";
+  //   position: absolute;
+  //   top: -5px;
+  //   right: -7px;
+  //   bottom: -2px;
+  //   left: 0;
+  //   background-color: #fff;
+  //   z-index: -1;
+  // }
+}
+
+// @each $pathnumber, $path in $paths {
+//   .#{$pathnumber} {
+//     display: inline-block;
+//     clip-path: $path;
+//   }
+// }
+
+@each $paper-color, $color in $paper-colors {
+  .paperwrapper-#{$paper-color} {
+    transform-origin: center center;
+    display: inline-block;
+
+    $shadow-color: darken($color, 50%);
+    box-shadow: $shadow-small rgba($shadow-color, 0.2),
+      $shadow-small hsla(0, 0%, 20%, 0.3);
+    position: relative;
+    transition: box-shadow $transition-backwards, rotate $transition-backwards,
+      scale $transition-backwards;
+
+    & .shadow {
+      background-color: $color;
+      display: inline-block;
+      $shadow-color: darken($color, 50%);
+      box-shadow: $shadow-small rgba($shadow-color, 0.2),
+        $shadow-small hsla(0, 0%, 20%, 0.3);
+      position: relative;
+      transition: box-shadow $transition-backwards;
+    }
+    &:hover,
+    :focus-visible {
+      rotate: 2deg;
+      transition: rotate $transition-forwards;
+      & .shadow {
+        $shadow-color: darken($color, 50%);
+        box-shadow: $shadow-small-hover rgba($shadow-color, 0.2),
+          $shadow-small-hover hsla(0, 0%, 20%, 0.3);
+        transition: box-shadow $transition-forwards;
+      }
+    }
+
+    &:focus-within {
+      scale: 1.05;
+      transition: scale $transition-forwards;
+    }
+
+    & .paper {
+      background-color: $color;
+      width: 100%;
+      margin: 0;
+      height: inherit;
+      & img {
+        display: inline-block;
+      }
+    }
+  }
+
+  .section-paper {
+    box-shadow: $shadow-small hsla(0, 0%, 20%, 0.4);
+    background-color: $white;
+    max-width: $max-width;
+    padding-block: $padding-medium * 2;
+    display: grid;
+    place-items: center;
+    margin: $margin-medium auto;
+    position: relative;
+    isolation: isolate;
+    background-repeat: no-repeat;
+    object-fit: contain;
+    background-position: center center;
+    background-size: 100%;
+  }
+
+  .CMY {
+    background-image: url(./../assets/images/achtergrond/CMYachtergrondopacityhalf.webp);
+    object-fit: contain;
+  }
+
+  .CMY2 {
+    background-image: url(./../assets/images/achtergrond/CMY2halfopacity.webp);
+    object-fit: contain;
+  }
+  .CMY3 {
+    background-image: url(./../assets/images/achtergrond/CMY3halfop.webp);
+    object-fit: contain;
+  }
+
+  .section-paper-#{$paper-color} {
+    $shadow-color: darken($color, 40%);
+    box-shadow: $shadow-small rgba($shadow-color, 0.2),
+      $shadow-small hsla(0, 0%, 20%, 0.4);
+    background-color: $color;
+    max-width: $max-width;
+    padding-block: $padding-medium * 2;
+    display: grid;
+    place-items: center;
+    margin: $margin-medium auto;
+    position: relative;
+    isolation: isolate;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    background-position: center center;
+    background-size: 105% 105%;
+  }
+
+  .#{$paper-color} {
+    background-color: $color;
+    $shadow-color: darken($color, 40%);
+    box-shadow: $shadow-small rgba($shadow-color, 0.2),
+      $shadow-small hsla(0, 0%, 20%, 0.4);
+  }
+}
+
+.border {
+  border: 2px solid $black;
+}
+
+.scissors-wrapper {
+  position: relative;
+}
+
+.border-scissors-right::after {
+  content: "";
+  position: absolute;
+  --inset: 5px;
+  --opposite-inset: calc(100% - var(--inset));
+  right: var(--inset);
+  top: 0;
+  bottom: 0;
+  left: var(--opposite-inset);
+  border-right: 2px dashed $black;
+}
+.scissors {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.2rem;
+  z-index: 10;
+}
+.scissors-right {
+  position: absolute;
+  top: 0;
+  right: 5px;
+  width: 1.2rem;
+  z-index: 10;
+}
